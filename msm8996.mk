@@ -224,11 +224,13 @@ PRODUCT_GMS_CLIENTID_BASE := android-om-lg
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
-    libcurl \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
     libgnss \
-    libgnsspps \
-    libsensorndkbridge
+    libsensorndkbridge \
+    libwifi-hal-ctrl
 
 
 PRODUCT_COPY_FILES += \
