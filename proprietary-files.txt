@@ -372,6 +372,10 @@ vendor/lib64/vendor.qti.gnss@2.1.so|40e151a2a91eb9a4527f8b2727d73f735a4031ee
 vendor/lib64/vendor.qti.gnss@3.0-service.so|6b3c387f31f4cb91c8907362af4daa3f0cad7911
 vendor/lib64/vendor.qti.gnss@3.0.so|f6fcad23402ff41c57f229c308e59b9781ddc7d4
 
+# GPS - haxx
+vendor/lib/libwifi-hal-ctrl.so
+vendor/lib64/libwifi-hal-ctrl.so
+
 # Hotword Enrollment - from Stock H870 V30B
 -product/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
 -product/priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
