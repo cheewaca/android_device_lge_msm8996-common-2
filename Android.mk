@@ -23,6 +23,13 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
+# builds require us to create the mount points at compile time.
+# Just creating it for all cases since it does not hurt.
+FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
+$(FIRMWARE_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating $(FIRMWARE_MOUNT_POINT)"
+	@mkdir -p $(TARGET_OUT_VENDOR)/firmware_mnt
+
 # CPPF Images
 CPPF_IMAGES := \
     cppf.b00 cppf.b01 cppf.b02 cppf.b03 cppf.b04 \
@@ -33,7 +40,7 @@ $(CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "CPPF firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /persist-lg/firmware/$(notdir $@) $@
+	$(hide) ln -sf /mnt/vendor/persist-lg/firmware/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(CPPF_SYMLINKS)
 # END CPPF Images
@@ -48,7 +55,7 @@ $(DXHDCP2_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "DXHDCP2 firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /vendor/firmware_mnt/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(DXHDCP2_SYMLINKS)
 # END DXHDCP2 Images
@@ -93,7 +100,7 @@ $(CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "CPPF firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /persist-lg/firmware/$(notdir $@) $@
+	$(hide) ln -sf /mnt/vendor/persist-lg/firmware/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(CPPF_SYMLINKS)
 # END CPPF Images
@@ -108,7 +115,7 @@ $(WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WIDEVINE firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /persist-lg/firmware/$(notdir $@) $@
+	$(hide) ln -sf /mnt/vendor/persist-lg/firmware/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WIDEVINE_SYMLINKS)
 # END WIDEVINE Images
@@ -123,27 +130,30 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
 
-RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT)/rfs/msm/adsp/
+RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/adsp/
 $(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating RFS MSM ADSP folder structure: $@"
 	@rm -rf $@/*
-	@mkdir -p $(dir $@)/readonly
-	$(hide) ln -sf /data/vendor/tombstones/lpass $@/ramdumps
-	$(hide) ln -sf /persist/rfs/msm/adsp $@/readwrite
-	$(hide) ln -sf /persist/rfs/shared $@/shared
-	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
-	$(hide) ln -sf /firmware $@/readonly/firmware
+	@mkdir -p $(dir $@)/readonly/vendor
+	$(hide) ln -sf /data/vendor/tombstones/rfs/lpass $@/ramdumps
+	$(hide) ln -sf /mnt/vendor/persist/rfs/msm/adsp $@/readwrite
+	$(hide) ln -sf /mnt/vendor/persist/rfs/shared $@/shared
+	$(hide) ln -sf /mnt/vendor/persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /vendor/firmware_mnt $@/readonly/firmware
+	$(hide) ln -sf /vendor/firmware $@/readonly/vendor/firmware
 
-RFS_MSM_MPSS_SYMLINKS := $(TARGET_OUT)/rfs/msm/mpss/
+RFS_MSM_MPSS_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/mpss/
 $(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Creating RFS MSM MPSS folder structure: $@"
 	@rm -rf $@/*
-	@mkdir -p $(dir $@)/readonly
-	$(hide) ln -sf /data/vendor/tombstones/modem $@/ramdumps
-	$(hide) ln -sf /persist/rfs/msm/mpss $@/readwrite
-	$(hide) ln -sf /persist/rfs/shared $@/shared
-	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
-	$(hide) ln -sf /firmware $@/readonly/firmware
+	@mkdir -p $(dir $@)/readonly/vendor
+	$(hide) ln -sf /data/vendor/tombstones/rfs/modem $@/ramdumps
+	$(hide) ln -sf /data/vendor/radio/modem_config $@/readonly/modem_config
+	$(hide) ln -sf /mnt/vendor/persist/rfs/msm/mpss $@/readwrite
+	$(hide) ln -sf /mnt/vendor/persist/rfs/shared $@/shared
+	$(hide) ln -sf /mnt/vendor/persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /vendor/firmware_mnt $@/readonly/firmware
+	$(hide) ln -sf /vendor/firmware $@/readonly/vendor/firmware
 
 ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS)
 

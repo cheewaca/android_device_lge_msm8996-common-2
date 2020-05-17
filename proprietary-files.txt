@@ -249,29 +249,6 @@ vendor/etc/init/dpmQmiMgr.rc|67569302d3a8828a9118c835e5b69c51b0c8ac68
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
 vendor/lib64/libdpmqmihal.so|25d74c0e867f023b71a7c599ab6d213c7de2725d
 
-# DRM - from Stock H870 V20I
-vendor/bin/qseecomd
-vendor/lib/libcppf.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libQSEEComAPI.so
-vendor/lib/libStDrvInt.so
-vendor/lib/libqisl.so
-vendor/lib/librpmb.so
-vendor/lib/libssd.so
-vendor/lib64/lib-sec-disp.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libqisl.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libssd.so
-
 # DSP - from Stock H870 V30B
 vendor/lib/rfsa/adsp/AlacDecoderModule.so.1
 vendor/lib/rfsa/adsp/ApeDecoderModule.so.1
@@ -582,11 +559,6 @@ vendor/lib64/libthermalioctl.so|24b22582f3f77769c5fbca06fcc1d3b6533cdf40
 vendor/bin/time_daemon|75b8a6a14cfb4424499ccb2bf1cad011df295d0e
 vendor/lib/libtime_genoff.so|a574d287e7e73649685b702f4fe497eb7c6ba727
 vendor/lib64/libtime_genoff.so|06df52867790cdbbcc674a3a28d7ad7c8cc161ac
-
-# Widevine - from Marlin qp1a.190711.020
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
-vendor/lib/libwvhidl.so
 
 # Wifi-Display - from LA.UM.7.5.r1-04800-8x96.0
 bin/wfdservice

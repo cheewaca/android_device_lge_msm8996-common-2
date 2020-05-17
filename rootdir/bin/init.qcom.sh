@@ -419,7 +419,7 @@ else
     prev_version_info=""
 fi
 
-cur_version_info=`cat /firmware/verinfo/ver_info.txt`
+cur_version_info=`cat /vendor/firmware_mnt/verinfo/ver_info.txt`
 
 # HERE : LG_FW_MCFG_QCRIL_DB_ALWAYS_UPDATE
 
@@ -433,13 +433,13 @@ chmod 770 /data/vendor/radio/modem_config
 setprop persist.radio.sw_mbn_loaded 0
 # setprop persist.radio.hw_mbn_loaded 0
 if [ "$build_product" = "lucye" ]; then
-    cp -r /firmware/image/modem_pr/mcfg/configs/cust/* /data/vendor/radio/modem_config
+    cp -r /vendor/firmware_mnt/image/modem_pr/mcfg/configs/cust/* /data/vendor/radio/modem_config
 else
-    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/vendor/radio/modem_config
+    cp -r /vendor/firmware_mnt/image/modem_pr/mcfg/configs/* /data/vendor/radio/modem_config
 fi
 
 chown -hR radio.radio /data/vendor/radio/modem_config
-cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
+cp /vendor/firmware_mnt/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
 chown radio.radio /data/vendor/radio/ver_info.txt
 
 # LUCYE, MCFG selection for hidden menu.
@@ -449,7 +449,7 @@ if [ "$build_product" = "lucye" ]; then
     chmod -R 770 /data/vendor/radio/modem_config/mcfg_sw
     chown -hR radio.system /data/vendor/radio/modem_config/mcfg_sw
 fi
-cp /firmware/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
+cp /vendor/firmware_mnt/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
 chown radio.radio /data/vendor/radio/modem_config/mbn_ota.txt
 echo 1 > /data/vendor/radio/copy_complete
 # END MCFG Operation.

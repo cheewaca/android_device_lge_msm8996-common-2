@@ -486,9 +486,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IDrmFactory</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.2::ICryptoFactory/clearkey</fqname>
-        <fqname>@1.2::IDrmFactory/clearkey</fqname>
+        <fqname>@1.0::ICryptoFactory/default</fqname>
+        <fqname>@1.0::IDrmFactory/default</fqname>
+        <fqname>@1.1::ICryptoFactory/clearkey</fqname>
         <fqname>@1.1::ICryptoFactory/widevine</fqname>
+        <fqname>@1.1::IDrmFactory/clearkey</fqname>
         <fqname>@1.1::IDrmFactory/widevine</fqname>
     </hal>
    <!-- IMS UCE Service -->
@@ -596,6 +598,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IGPAppConnector</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IAppConnector/default</fqname>
+        <fqname>@1.0::IGPAppConnector/default</fqname>
     </hal>
     <!-- Thermal HAL Service -->
     <hal format="hidl">
@@ -609,7 +613,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </hal>
 
     <!-- tui communicator service -->
-  <hal format="hidl">
+    <hal format="hidl">
         <name>vendor.qti.hardware.tui_comm</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -617,6 +621,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ITuiComm</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ITuiComm/default</fqname>
     </hal>
 
     <!--  Soter service -->
