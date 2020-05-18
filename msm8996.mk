@@ -141,7 +141,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.class_main.sh \
-    init.lucye.hdmi.sh \
     init.qcom.sensors.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \

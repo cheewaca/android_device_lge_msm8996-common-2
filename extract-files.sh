@@ -65,6 +65,16 @@ function blob_fixup() {
 		patchelf --replace-needed "libbase.so" "libbase-hax.so" "${2}"
 		;;
 
+    vendor/lib/libtzdrmgenprov.so)
+    # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+		;;
+
+    vendor/lib64/hw/fingerprint.msm8996.so)
+    # Hex edit /firmware/image to /vendor/firmware_mnt to delete the outdated rootdir symlinks
+        sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+		;;
+
 # Initialize the helper for common platform
 setup_vendor "$PLATFORM_COMMON" "$VENDOR" "$LINEAGE_ROOT" true $CLEAN_VENDOR
 

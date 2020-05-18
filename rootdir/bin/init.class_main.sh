@@ -81,7 +81,7 @@ case "$baseband" in
                 fi
             fi
         elif [ "$modem" = "JO" ]; then
-            version=`cat /firmware/verinfo/ver_info.txt |
+            version=`cat /vendor/firmware_mnt/verinfo/ver_info.txt |
                     sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
                     sed 's/.*JO.\(.*\)/\1/g' | cut -d \- -f 1`
             if [ ! -z $version ]; then
