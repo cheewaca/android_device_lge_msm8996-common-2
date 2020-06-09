@@ -57,8 +57,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/lge/msm8996
 KERNEL_TOOLCHAIN_arm64 := /home/cheewaca/Compile_Tools/GCC494/bin
 KERNEL_TOOLCHAIN_PREFIX_arm64 := aarch64-linux-gnu-
-KERNEL_TOOLCHAIN_arm := /home/cheewaca/Compile_Tools/GCC494/32bits/bin
-KERNEL_TOOLCHAIN_PREFIX_arm := arm-eabi-
 
 # Dup rules
 BUILD_BROKEN_DUP_RULES := true
