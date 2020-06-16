@@ -209,7 +209,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Surfaceflinger
 PRODUCT_PROPERTY_OVERRIDES += \
-     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+    debug.sf.early_app_phase_offset_ns=700000 \
+    debug.sf.early_gl_app_phase_offset_ns=7500000 \
+    debug.sf.early_gl_phase_offset_ns=1500000 \
+    debug.sf.early_phase_offset_ns=700000 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
